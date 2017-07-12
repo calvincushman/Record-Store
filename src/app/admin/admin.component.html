@@ -1,0 +1,19 @@
+<h3>add new album</h3>
+<div>
+  <div>
+    <label>Album Title</label>
+    <br>
+    <input #newTitle>
+  </div>
+  <div>
+    <label>Artist</label>
+    <br>
+    <input #newArtist>
+  </div>
+  <div>
+    <label>Description</label>
+    <br>
+    <input #newDescription>
+  </div>
+</div>
+<button (click)="submitForm(newTitle.value, newArtist.value, newDescription.value); newTitle.value=''; newArtist.value=''; newDescription.value='';">Add</button>
