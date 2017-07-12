@@ -10,16 +10,18 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./marketplace.component.css'],
   providers: [AlbumService]
 })
-export class MarketplaceComponent implements OnInit{
-  albums: FirebaseListObservable<any[]>;
 
-constructor(private router: Router, private albumService: AlbumService){}
+export class MarketplaceComponent implements OnInit {
+  albums: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
+
+  constructor(private router: Router, private albumService: AlbumService){};
 
 ngOnInit(){
   this.albums = this.albumService.getAlbums();
 }
 
   goToDetailPage(clickedAlbum) {
-    this.router.navigate(['albums', clickedAlbum.clickedAlbum.$key]);
+    this.router.navigate(['albums', clickedAlbum.$key]);
   };
 }
